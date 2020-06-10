@@ -12,6 +12,7 @@ class mainwindow(Gtk.Window):
         
         Gtk.Window.__init__(self, title="BrightSetter")
         Gtk.Window.set_default_size(self, 200,100)
+        Gtk.Window.set_resizable(self, False)
         Gtk.Window.set_position(self, Gtk.WindowPosition.CENTER)
 
         box1 = Gtk.VButtonBox(spacing=10)
