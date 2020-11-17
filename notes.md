@@ -1,4 +1,4 @@
-# optionally implement: 
+## optionally implement: 
 
-implement elevation via pkexec
-implement return to previous value on exit
+elevation via pkexec,
+return to previous value on exit
