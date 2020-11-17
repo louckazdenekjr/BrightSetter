@@ -5,5 +5,7 @@ Dependencies: Python (3.8.5.), GTK3, brightnessctl (https://github.com/Hummer120
 
 ![Screenshot](https://raw.githubusercontent.com/louckazdenekjr/BrightSetter/master/Screenshot.png)
 
-#pyinstaller BrightSetter --onefile --windowed --icon=app.ico
+compilation:
+
+pyinstaller BrightSetter --onefile --windowed --icon=app.ico
 
