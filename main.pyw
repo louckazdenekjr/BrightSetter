@@ -9,7 +9,6 @@ import os
 import sys
 
 
-#implement elevation via pkexec?
 #if os.getuid() != 0:
     #os.execl(sys.executable, sys.executable, *sys.argv)
 
@@ -53,7 +52,6 @@ class mainwindow(Gtk.Window):
         return
     
 window = mainwindow()
-#implement return to previous value on exit? 
 #window.connect("delete-event", backToNormal())
 window.connect("delete-event", Gtk.main_quit)
 window.show_all()
