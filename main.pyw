@@ -8,14 +8,17 @@ from gi.repository import Gtk
 import os
 import sys
 
-
-#if os.getuid() != 0:
-    #os.execl(sys.executable, sys.executable, *sys.argv)
+def prompt_sudo():
+    ret = 0
+    if os.geteuid() != 0:
+        msg = "[sudo] password for %u:"
+        ret = subprocess.check_call("sudo -v -p '%s'" % msg, shell=True)
+    return ret
 
 class mainwindow(Gtk.Window):
 
     def __init__(self):
-        
+        prompt_sudo()        
         Gtk.Window.__init__(self, title="BrightSetter")
         Gtk.Window.set_default_size(self, 200,100)
         Gtk.Window.set_resizable(self, False)
@@ -38,11 +41,11 @@ class mainwindow(Gtk.Window):
         self.add(box1)
         
     def whenbutton1_clicked(self, button):
-        bashCommandUp = "brightnessctl set +10"
+        bashCommandUp = "sudo brightnessctl set +10"
         output = subprocess.check_output(['bash','-c', bashCommandUp])
       
     def whenbutton2_clicked(self, button):
-        bashCommandDown = "brightnessctl set 10-"
+        bashCommandDown = "sudo brightnessctl set 10-"
         output = subprocess.check_output(['bash','-c', bashCommandDown])
 
 
